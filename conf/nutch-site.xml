@@ -25,4 +25,40 @@
         <value>org.apache.gora.mongodb.store.MongoStore</value>
         <description>Default class for storing data</description>
     </property>
+
+    <property>
+        <name>http.agent.name</name>
+        <value>MyCrawler</value>
+    </property>
+
+    <!--<property>-->
+        <!--<name>plugin.includes</name>-->
+        <!--<value>protocol-(httphttpclient)urlfilter-regexindex-(basicmore)query-(basicsiteurllang)indexer-elasticnutch-extensionpointsparse-(texthtmlmsexcelmswordmspowerpointpdf)summary-basicscoring-opicurlnormalizer-(passregexbasic)parse-(htmltikametatags)index-(basicanchormoremetadata)</value>-->
+    <!--</property>-->
+
+    <!--<property>-->
+        <!--<name>elastic.host</name>-->
+        <!--<value>localhost</value>-->
+    <!--</property>-->
+
+    <!--<property>-->
+        <!--<name>elastic.cluster</name>-->
+        <!--<value>hist</value>-->
+    <!--</property>-->
+
+    <property>
+        <name>elastic.index</name>
+        <value>nutch</value>
+    </property>
+
+    <property>
+        <name>parser.character.encoding.default</name>
+        <value>utf-8</value>
+    </property>
+
+    <!--<property>-->
+        <!--<name>http.content.limit</name>-->
+        <!--<value>6553600</value>-->
+    <!--</property>-->
+
 </configuration>
