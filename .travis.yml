@@ -1,6 +1,5 @@
-script: ant runtime
-
 language: java
+script: ant runtime
 
 jdk:
   - oraclejdk8

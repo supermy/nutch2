@@ -25,14 +25,14 @@
           http://public.planetmirror.com/pub/maven2
           http://ibiblio.lsu.edu/main/pub/packages/maven2
           http://www.ibiblio.net/pub/packages/maven2
-
+http://maven.aliyun.com/nexus/content/groups/public/
           http://repo1.maven.org/maven2/
   -->
   <property name="oss.sonatype.org" 
     value="http://oss.sonatype.org/content/repositories/releases/" 
     override="false"/>
   <property name="repo.maven.org"
-    value="http://maven.aliyun.com/nexus/content/groups/public/"
+    value="http://repo1.maven.org/maven2/"
     override="false"/>
   <property name="repository.apache.org"
     value="https://repository.apache.org/content/repositories/snapshots/"
