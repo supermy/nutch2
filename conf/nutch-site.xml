@@ -61,4 +61,14 @@
         <!--<value>6553600</value>-->
     <!--</property>-->
 
+    <property>
+        <name>plugin.includes</name>
+        <value>protocol-http|urlfilter-regex|parse-(html|tika)|index-(basic|anchor)|urlnormalizer-(pass|regex|basic)|scoring-opic</value>
+        <description>
+            通过配置插件，完成页面采集。
+
+        </description>
+    </property>
+
+
 </configuration>
