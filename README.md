@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/supermy/nutch2.svg?branch=master)](https://github.com/supermy/nutch2)
 
 ## 简介 
-* Nutch 是一个分布式的爬虫软件
+* Nutch 是一个分布式的爬虫软件；整合 MongoDB 进行数据存储；
 
 
 
