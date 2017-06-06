@@ -126,9 +126,12 @@ public class DOMContentUtils {
     boolean abort = false;
     NodeWalker walker = new NodeWalker(node);
 
+    int i = 0;
     while (walker.hasNext()) {
+      i++;
 
       Node currentNode = walker.nextNode();
+
       String nodeName = currentNode.getNodeName();
       short nodeType = currentNode.getNodeType();
 
@@ -150,16 +153,22 @@ public class DOMContentUtils {
       }
       if (nodeType == Node.TEXT_NODE) {
         // cleanup and trim the value
-        String text = currentNode.getNodeValue();
+        String text = currentNode.getNodeValue(); 
         text = text.replaceAll("\\s+", " ");
         text = text.trim();
+        //// FIXME: 17/6/6 getText 格式改为 json 格式，便于数据的精准提取。
         if (text.length() > 0) {
           if (sb.length() > 0)
-            sb.append(' ');
-          sb.append(text);
+            sb.append(",");  //kv 分割符号；
+          else
+            sb.append("{");
+          //{"a1":1,"a2":1}
+          sb.append("\"").append("t").append(i).append("\"").append(":");
+          sb.append("\"").append(text).append("\"");
         }
       }
     }
+    sb.append("}");
 
     return abort;
   }
