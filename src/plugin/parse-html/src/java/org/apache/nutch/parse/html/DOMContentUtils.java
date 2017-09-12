@@ -113,7 +113,7 @@ public class DOMContentUtils {
 
   /**
    * This is a convinience method, equivalent to
-   * {@link #getText(StringBuffer,Node,boolean) getText(sb, node, false)}.
+   * {@link #getText(StringBuilder,Node,boolean) getText(sb, node, false)}.
    * 
    */
   public void getText(StringBuilder sb, Node node) {
@@ -132,8 +132,9 @@ public class DOMContentUtils {
     NodeWalker walker = new NodeWalker(node);
 
     //table 表格数据解析
-    //tr 行数据解析
-    //td 字段数据解析
+    //ul/tr 行数据解析
+    //li/td 字段数据解析
+
 
     int i = 0;
     while (walker.hasNext()) {
@@ -143,6 +144,24 @@ public class DOMContentUtils {
 
       String nodeName = currentNode.getNodeName();
       short nodeType = currentNode.getNodeType();
+
+      //特殊标签进行递归
+      //标签 table 或者 ul/li 列表数据
+      if ("ul".equalsIgnoreCase(nodeName) || "table".equalsIgnoreCase(nodeName)) {
+        treedo(sb,currentNode,i);
+      }
+
+
+      //跳过递归处理节点
+      if ("ul".equalsIgnoreCase(nodeName) || "table".equalsIgnoreCase(nodeName)) {
+        walker.skipChildren();
+      }
+
+      if ("li".equalsIgnoreCase(nodeName) || "td".equalsIgnoreCase(nodeName)) {
+        walker.skipChildren();
+      }
+
+
 
       if ("script".equalsIgnoreCase(nodeName)) {
         walker.skipChildren();
@@ -160,6 +179,12 @@ public class DOMContentUtils {
       if (nodeType == Node.COMMENT_NODE) {
         walker.skipChildren();
       }
+
+
+
+
+      //特殊标签跳过下面解析程序
+
       if (nodeType == Node.TEXT_NODE) {
         // cleanup and trim the value
         String text = currentNode.getNodeValue();
@@ -167,10 +192,12 @@ public class DOMContentUtils {
         text = text.trim();
         //// FIXME: 17/6/6 getText 格式改为 json 格式，便于数据的精准提取。
         if (text.length() > 0) {
+
           if (sb.length() > 0)
             sb.append(",");  //kv 分割符号；
           else
             sb.append("{");  //json start
+
           //{"a1":1,"a2":1}
 //          sb.append("\"").append("t").append(i).append("\"").append(":");
 //          sb.append("\"").append(text).append("\"");
@@ -178,11 +205,77 @@ public class DOMContentUtils {
           sb.append("'").append("t").append(i).append("'").append(":").append("'").append(text.replaceAll("'","-")).append("'");
         }
       }
+
     }
-    sb.append("}");
+      sb.append("}");
+
+
+
+
 
     return abort;
   }
+
+  //递归处理列表数据或者表格数据
+  private void treedo(StringBuilder sb, Node currentNode,int ii) {
+    int i=ii;
+    i++;
+    if(currentNode == null){
+      return;
+    }
+
+    String nodeName = currentNode.getNodeName();
+    short nodeType = currentNode.getNodeType();
+
+    if ("ul".equalsIgnoreCase(nodeName) || "table".equalsIgnoreCase(nodeName)) {
+
+      if (sb.length() > 0)
+        sb.append(",'jdata"+i+"':[");
+      else
+        sb.append("{'jdata"+i+"':[");
+    }
+
+    if ("li".equalsIgnoreCase(nodeName) || "td".equalsIgnoreCase(nodeName)) {
+      if (sb.toString().endsWith("}"))
+        sb.append(",");
+      sb.append("{'jline"+i+"':{");
+
+    }
+
+    if (nodeType == Node.TEXT_NODE) {
+      // cleanup and trim the value
+      String text = currentNode.getNodeValue();
+      text = text.replaceAll("\\s+", " "); //清除 \s是指空白，包括空格、换行、tab缩进等所有的空白
+      text = text.trim();
+      //// FIXME: 17/6/6 getText 格式改为 json 格式，便于数据的精准提取。
+      if (text.length() > 0) {
+
+        if (!sb.toString().endsWith("{"))
+          sb.append(",");
+
+        sb.append("'").append("tt").append(i).append("'").append(":").append("'").append(text.replaceAll("'","-")).append("'");
+      }
+
+    }
+
+    //便利子节点
+    if(currentNode.hasChildNodes()){
+      treedo(sb,currentNode.getFirstChild(),i);
+    }
+
+
+      //标签 table 或者 ul/li 列表数据
+    if ("li".equalsIgnoreCase(nodeName) || "td".equalsIgnoreCase(nodeName)) {
+      sb.append("}}");
+    }
+
+    if ("ul".equalsIgnoreCase(nodeName) || "table".equalsIgnoreCase(nodeName)) {
+      sb.append("]");
+    } else
+      treedo(sb,currentNode.getNextSibling(),i);
+
+  }
+
 
   /**
    * This method takes a {@link StringBuffer} and a DOM {@link Node}, and will
