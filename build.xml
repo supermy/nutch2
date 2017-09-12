@@ -204,7 +204,10 @@
       <packageset dir="${plugins.dir}/urlnormalizer-pass/src/java"/>
       <packageset dir="${plugins.dir}/urlnormalizer-regex/src/java"/>
 
-   <link href="${javadoc.link.java}" />
+      <packageset dir="${plugins.dir}/protocol-httpajax/src/java"/>
+
+
+      <link href="${javadoc.link.java}" />
    <link href="${javadoc.link.lucene}" />
    <link href="${javadoc.link.hadoop}" />
 
@@ -635,7 +638,10 @@
       <packageset dir="${plugins.dir}/urlnormalizer-pass/src/java"/>
       <packageset dir="${plugins.dir}/urlnormalizer-regex/src/java"/>
 
-   <link href="${javadoc.link.java}" />
+      <packageset dir="${plugins.dir}/protocol-httpajax/src/java"/>
+
+
+      <link href="${javadoc.link.java}" />
    <link href="${javadoc.link.lucene}" />
    <link href="${javadoc.link.hadoop}" />
 
@@ -1030,6 +1036,8 @@
         <source path="${basedir}/src/plugin/urlnormalizer-pass/src/test/" />
         <source path="${basedir}/src/plugin/urlnormalizer-regex/src/java/" />
         <source path="${basedir}/src/plugin/urlnormalizer-regex/src/test/" />
+
+          <source path="${basedir}/src/plugin/protocol-htmlajax/src/java/" />
 
         <output path="${basedir}/build/classes" />
       </classpath>

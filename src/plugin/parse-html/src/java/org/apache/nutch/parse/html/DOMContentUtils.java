@@ -17,18 +17,19 @@
 
 package org.apache.nutch.parse.html;
 
-import java.net.URL;
-import java.net.MalformedURLException;
-import java.util.Collection;
-import java.util.ArrayList;
-import java.util.HashMap;
-
+import org.apache.hadoop.conf.Configuration;
 import org.apache.nutch.parse.Outlink;
 import org.apache.nutch.util.NodeWalker;
 import org.apache.nutch.util.URLUtil;
-import org.apache.hadoop.conf.Configuration;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
-import org.w3c.dom.*;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 
 /**
  * A collection of methods for extracting content from DOM trees.
@@ -121,10 +122,18 @@ public class DOMContentUtils {
 
   // returns true if abortOnNestedAnchors is true and we find nested
   // anchors
+  //StringBuilder
   private boolean getTextHelper(StringBuilder sb, Node node,
-      boolean abortOnNestedAnchors, int anchorDepth) {
+                                boolean abortOnNestedAnchors, int anchorDepth) {
+
+
     boolean abort = false;
+
     NodeWalker walker = new NodeWalker(node);
+
+    //table 表格数据解析
+    //tr 行数据解析
+    //td 字段数据解析
 
     int i = 0;
     while (walker.hasNext()) {
@@ -153,18 +162,20 @@ public class DOMContentUtils {
       }
       if (nodeType == Node.TEXT_NODE) {
         // cleanup and trim the value
-        String text = currentNode.getNodeValue(); 
-        text = text.replaceAll("\\s+", " ");
+        String text = currentNode.getNodeValue();
+        text = text.replaceAll("\\s+", " "); //清除 \s是指空白，包括空格、换行、tab缩进等所有的空白
         text = text.trim();
         //// FIXME: 17/6/6 getText 格式改为 json 格式，便于数据的精准提取。
         if (text.length() > 0) {
           if (sb.length() > 0)
             sb.append(",");  //kv 分割符号；
           else
-            sb.append("{");
+            sb.append("{");  //json start
           //{"a1":1,"a2":1}
-          sb.append("\"").append("t").append(i).append("\"").append(":");
-          sb.append("\"").append(text).append("\"");
+//          sb.append("\"").append("t").append(i).append("\"").append(":");
+//          sb.append("\"").append(text).append("\"");
+          //{'a1':1,'a2':1}
+          sb.append("'").append("t").append(i).append("'").append(":").append("'").append(text.replaceAll("'","-")).append("'");
         }
       }
     }

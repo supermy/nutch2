@@ -32,13 +32,21 @@ Nutch2 爬虫整合，Mongodb数据存储，Json 精准数据提取。
    
 *  抓取网页，数据存储到 mongodb 的 nutch 库  gushichi_webpage 表中：
     cd runtime/local
-    bin/crawl urls/gushichi.txt gushichi 1
+    bin/crawl ../../urls/gushichi.txt gushichi 1
+    bin/crawl ../../urls/nuomidianying.txt nuomidianying 1
     
+    bin/crawl ../../urls/dianping.txt dianping 1
+
+    bin/crawl ../../urls/gonglu.txt gonglu 1
+
 *  查看网页抓取记录数量：nutch -  数据库名称； gushichi_webpage - 数据表名称    
     mongo nutch --quiet --eval 'db.gushichi_webpage.count()'
     >mongo
     >use nutch
     >db.gushichi_webpage.findOne()
+    
+    mongo nutch --quiet --eval 'db.gonglu_webpage.findOne({},{"text":1})'
+
     
 *  查看网页内容：字段 content 保存网页内容，字段 text 保存正文内容；
     mongo nutch --quiet --eval  'db.gushichi_webpage.findOne({baseUrl:"http://so.gushiwen.org/view_8328.aspx"},{})["content"].base64()' |base64 -D

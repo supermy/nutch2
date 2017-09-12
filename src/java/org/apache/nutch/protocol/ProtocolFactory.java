@@ -70,10 +70,13 @@ public class ProtocolFactory {
    */
   public synchronized Protocol getProtocol(String urlString)
       throws ProtocolNotFound {
+    System.out.println("getProtocol......"+urlString);
+
     ObjectCache objectCache = ObjectCache.get(conf);
     try {
       URL url = new URL(urlString);
       String protocolName = url.getProtocol();
+
       if (protocolName == null)
         throw new ProtocolNotFound(urlString);
 
@@ -82,6 +85,8 @@ public class ProtocolFactory {
       if (protocol != null) {
         return protocol;
       }
+
+      System.out.println("findExtension......"+protocolName);
 
       Extension extension = findExtension(protocolName);
       if (extension == null) {
@@ -99,11 +104,14 @@ public class ProtocolFactory {
   }
 
   private Extension findExtension(String name) throws PluginRuntimeException {
+    System.out.println("findExtension......");
 
     Extension[] extensions = this.extensionPoint.getExtensions();
 
     for (int i = 0; i < extensions.length; i++) {
       Extension extension = extensions[i];
+      System.out.println(extension.getAttribute("protocolName"));
+
       if (contains(name, extension.getAttribute("protocolName")))
         return extension;
     }

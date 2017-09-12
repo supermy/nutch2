@@ -69,6 +69,12 @@
      <ant dir="parse-swf" target="deploy"/>
      <ant dir="parse-zip" target="deploy"/>
      -->
+      <ant dir="lib-htmlunit" target="deploy"/>
+
+      <ant dir="protocol-httpajax" target="deploy"/>
+
+
+
   </target>
 
   <!-- ====================================================== -->
@@ -107,6 +113,11 @@
      <ant dir="parse-swf" target="test"/>
      <ant dir="parse-zip" target="test"/>
       -->
+      <ant dir="lib-htmlunit" target="test"/>
+
+      <ant dir="protocol-httpajax" target="test"/>
+
+
   </target>
 
   <!-- ====================================================== -->
@@ -154,5 +165,9 @@
     <ant dir="urlnormalizer-basic" target="clean"/>
     <ant dir="urlnormalizer-pass" target="clean"/>
     <ant dir="urlnormalizer-regex" target="clean"/>
+
+      <ant dir="lib-htmlunit" target="clean"/>
+      <ant dir="protocol-httpajax" target="clean"/>
+
   </target>
 </project>

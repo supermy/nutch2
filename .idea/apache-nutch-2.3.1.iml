@@ -2,7 +2,82 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$/src">
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/protocol-htmlunit/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlfilter-automaton/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/parse-metatags/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlfilter-validator/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/protocol-httpclient/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/microformats-reltag/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/parse-html/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/tld/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/scoring-opic/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlfilter-suffix/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/microformats-reltag/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/parse-tika/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/creativecommons/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlfilter-regex/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/index-anchor/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlfilter-prefix/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/protocol-ftp/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlfilter-domain/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/index-basic/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/protocol-http/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/scoring-link/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/scoring-opic/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/tld/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/parse-js/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlfilter-suffix/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/index-anchor/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/protocol-httpclient/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlfilter-validator/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlfilter-regex/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/index-html/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlfilter-domain/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/feed/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/parse-js/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/parse-zip/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/protocol-http/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlnormalizer-regex/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlnormalizer-basic/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/parse-ext/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/language-identifier/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlnormalizer-pass/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/protocol-sftp/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/creativecommons/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/indexer-solr/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/parse-tika/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/index-basic/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/index-metadata/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/index-more/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/index-more/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/indexer-elastic/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/protocol-file/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlnormalizer-basic/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/language-identifier/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/parse-swf/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlfilter-prefix/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/parse-html/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/parse-swf/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlnormalizer-pass/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/subcollection/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/lib-regex-filter/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/protocol-file/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlnormalizer-regex/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/feed/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/lib-http/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/parse-zip/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/parse-metatags/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/subcollection/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/parse-ext/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/urlfilter-automaton/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/lib-http/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/lib-regex-filter/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/protocol-htmlunit/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
