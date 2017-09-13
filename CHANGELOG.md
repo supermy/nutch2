@@ -28,6 +28,7 @@
         bin/crawl urls/gushichi.txt gushichi 6
         mongo nutch --quiet --eval  'db.gushichi_webpage.find({_id:"org.gushiwen.www:http/gushi/changjiang.aspx"},{content:1})[0]["content"].base64()' |base64 -D
         mongo nutch --quiet --eval  'db.gushichi_webpage.findOne({baseUrl:"http://so.gushiwen.org/view_8328.aspx"},{})["content"].base64()' |base64 -D
+
          
 ###2017-06-04
     完成初始化配置；

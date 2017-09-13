@@ -4,7 +4,7 @@
 
 ## 简介 
 
-Nutch2 爬虫整合，Mongodb数据存储，Json 精准数据提取。
+Nutch2 爬虫整合，Mongodb数据存储，Json 精准数据提取，Mongo JS 进行数据 ETL 抽取。
 * 基于Nutch定制爬虫软件，存储到 Mongodb；（如果有 Hbase 环境，可执行配置将数据抓取到 Hbase）
 * 定制获取数据结果为 JSON,方便精准提取数据；
 * 可根据url地址 ,定制抓取任务。
@@ -31,12 +31,11 @@ Nutch2 爬虫整合，Mongodb数据存储，Json 精准数据提取。
         +^http://([a-z0-9]*\.)*gushiwen.org/
    
 *  抓取网页，数据存储到 mongodb 的 nutch 库  gushichi_webpage 表中：
+
     cd runtime/local
     bin/crawl ../../urls/gushichi.txt gushichi 1
-    bin/crawl ../../urls/nuomidianying.txt nuomidianying 1
-    
+    bin/crawl ../../urls/nuomidianying.txt nuomidianying 1    
     bin/crawl ../../urls/dianping.txt dianping 1
-
     bin/crawl ../../urls/gonglu.txt gonglu 1
 
 *  查看网页抓取记录数量：nutch -  数据库名称； gushichi_webpage - 数据表名称    
@@ -45,13 +44,14 @@ Nutch2 爬虫整合，Mongodb数据存储，Json 精准数据提取。
     >use nutch
     >db.gushichi_webpage.findOne()
     
-    mongo nutch --quiet --eval 'db.gonglu_webpage.findOne({},{"text":1})'
-
-    
 *  查看网页内容：字段 content 保存网页内容，字段 text 保存正文内容；
     mongo nutch --quiet --eval  'db.gushichi_webpage.findOne({baseUrl:"http://so.gushiwen.org/view_8328.aspx"},{})["content"].base64()' |base64 -D
 
 
+*  Mongo JS 抽取所需要的数据到 csv (可用 ETL 工具调度)
+    mongo nutch --quiet get.js  >gonglu.csv
+    
+    
 
 ## 特点
 
