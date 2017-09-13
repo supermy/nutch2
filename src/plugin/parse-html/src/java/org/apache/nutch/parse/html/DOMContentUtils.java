@@ -221,7 +221,6 @@ public class DOMContentUtils {
   private void treedo(StringBuilder sb, Node currentNode,int ii,int level) {
     int i=ii;
     i++;
-    level++;
     if(currentNode == null){
       return;
     }
@@ -268,7 +267,7 @@ public class DOMContentUtils {
 
     //便利子节点
     if(currentNode.hasChildNodes()){
-      treedo(sb,currentNode.getFirstChild(),i,level);
+      treedo(sb,currentNode.getFirstChild(),i,level++);
     }
 
 
