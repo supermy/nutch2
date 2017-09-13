@@ -199,10 +199,11 @@ public class DOMContentUtils {
             sb.append("{");  //json start
 
           //{"a1":1,"a2":1}
-//          sb.append("\"").append("t").append(i).append("\"").append(":");
-//          sb.append("\"").append(text).append("\"");
+          sb.append('"').append("t").append(i).append('"').append(":");
+          sb.append('"').append(text).append('"');
           //{'a1':1,'a2':1}
-          sb.append("'").append("t").append(i).append("'").append(":").append("'").append(text.replaceAll("'","-")).append("'");
+//          sb.append("").append("t").append(i).append("'").append(":")
+//          sb.append("'").append(text).append("'");
         }
       }
 
@@ -230,15 +231,20 @@ public class DOMContentUtils {
     if ("ul".equalsIgnoreCase(nodeName) || "table".equalsIgnoreCase(nodeName)) {
 
       if (sb.length() > 0)
-        sb.append(",'jdata"+i+"':[");
+        sb.append(",").append('"').append("jdata").append(i).append('"').append(":[");
       else
-        sb.append("{'jdata"+i+"':[");
+//        sb.append("{'jdata"+i+"':[");
+        sb.append("{").append('"').append("jdata").append(i).append('"').append(":[");
+
+
     }
 
     if ("li".equalsIgnoreCase(nodeName) || "td".equalsIgnoreCase(nodeName)) {
       if (sb.toString().endsWith("}"))
         sb.append(",");
-      sb.append("{'jline"+i+"':{");
+//      sb.append("{'jline"+i+"':{");
+//      sb.append("{").append('"').append("jline").append(i).append('"').append(":{");
+      sb.append("{").append('"').append("line").append('"').append(":{");
 
     }
 
@@ -253,7 +259,8 @@ public class DOMContentUtils {
         if (!sb.toString().endsWith("{"))
           sb.append(",");
 
-        sb.append("'").append("tt").append(i).append("'").append(":").append("'").append(text.replaceAll("'","-")).append("'");
+        sb.append('"').append("tt").append(i).append('"').append(":").append('"').append(text).append('"');
+
       }
 
     }

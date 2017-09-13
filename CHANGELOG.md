@@ -1,6 +1,12 @@
+###20170913
+
+*   json 数据的 ETL 处理： json to csv
+*   mongo json js ETL 加工模板
+
 ###2017-09-12
  
-*    完成 ajax 页面的抓取协议 protocol-httpajax
+*    完成 ajax 页面的抓取协议 protocol-httpajax；
+*    完成列表与表格数据的精准提取；
 
 ###2017-06-06
 *    完成 text 数据格式转换为 json ,在去上海途中的火车上完成。
