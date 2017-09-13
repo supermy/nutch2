@@ -148,7 +148,7 @@ public class DOMContentUtils {
       //特殊标签进行递归
       //标签 table 或者 ul/li 列表数据
       if ("ul".equalsIgnoreCase(nodeName) || "table".equalsIgnoreCase(nodeName)) {
-        treedo(sb,currentNode,i);
+        treedo(sb,currentNode,i,1);
       }
 
 
@@ -218,9 +218,10 @@ public class DOMContentUtils {
   }
 
   //递归处理列表数据或者表格数据
-  private void treedo(StringBuilder sb, Node currentNode,int ii) {
+  private void treedo(StringBuilder sb, Node currentNode,int ii,int level) {
     int i=ii;
     i++;
+    level++;
     if(currentNode == null){
       return;
     }
@@ -259,7 +260,7 @@ public class DOMContentUtils {
         if (!sb.toString().endsWith("{"))
           sb.append(",");
 
-        sb.append('"').append("tt").append(i).append('"').append(":").append('"').append(text).append('"');
+        sb.append('"').append("tt").append("-").append(level).append("-").append(i).append('"').append(":").append('"').append(text).append('"');
 
       }
 
@@ -267,7 +268,7 @@ public class DOMContentUtils {
 
     //便利子节点
     if(currentNode.hasChildNodes()){
-      treedo(sb,currentNode.getFirstChild(),i);
+      treedo(sb,currentNode.getFirstChild(),i,level);
     }
 
 
@@ -278,8 +279,10 @@ public class DOMContentUtils {
 
     if ("ul".equalsIgnoreCase(nodeName) || "table".equalsIgnoreCase(nodeName)) {
       sb.append("]");
-    } else
-      treedo(sb,currentNode.getNextSibling(),i);
+    } else{
+      i++;
+      treedo(sb,currentNode.getNextSibling(),i,level);
+    }
 
   }
 

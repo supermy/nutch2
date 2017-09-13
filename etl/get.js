@@ -11,10 +11,14 @@
  * @param datakey
  */
 function getdata(item,datakey) {
+    print(JSON.stringify(item));
+
     var data = JSON.parse(item.text);
     var targetdata=data[datakey];
+    //print(JSON.stringify(targetdata));
+
     targetdata.forEach(function(line){
-        // print(JSON.stringify(line));
+        print(JSON.stringify(line));
         for(var k in line){
             var item = line[k];
 
