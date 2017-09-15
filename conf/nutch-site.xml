@@ -73,4 +73,15 @@
     </property>
 
 
+    <property>
+        <name>xpath-kuai.baidu.com-/webapp/bus/list.html</name>
+        <value>//div[@class='js_list_wrapper']/ul</value>
+        <description>
+            System.out.println(url.getHost()); kuai.baidu.com/
+            System.out.println(url.getPath()); webapp/bus/list.html
+
+        </description>
+    </property>
+
+
 </configuration>

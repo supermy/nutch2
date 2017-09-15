@@ -15,13 +15,14 @@ function getdata(item,datakey) {
     //print(JSON.stringify(item._id));
     // print(JSON.stringify(item.text));
     //
-    //var data = JSON.parse(item.text); //字符串转化为 json 对象 方法1
+    var data = JSON.parse(item.text); //字符串转化为 json 对象 方法1
     // var data = eval(item.text);//字符串转化为 json 对象 方法2
-    var data =(new Function("","return "+item.text))(); //字符串转化为 json 对象 方法3
+    //var data =(new Function("","return "+item.text))(); //字符串转化为 json 对象 方法3
 
     var targetdata=data[datakey];
     // print(JSON.stringify(targetdata));
 
+    //数据转换json2csv
     targetdata.forEach(function(line){
         print(JSON.stringify(line));
         for(var k in line){
@@ -37,6 +38,6 @@ function getdata(item,datakey) {
 
 }
 
-//db.gonglu_webpage.find({}, {"text": 1}).forEach(function(o){getdata(o,"jdata146")});
-db.baidu_webpage.find({}, {"text": 1}).forEach(function(o){getdata(o,"jdata294")});
+db.gonglu_webpage.find({}, {"text": 1}).forEach(function(o){getdata(o,"jdata3")});
+// db.baidu_webpage.find({}, {"text": 1}).forEach(function(o){getdata(o,"jdata294")});
 

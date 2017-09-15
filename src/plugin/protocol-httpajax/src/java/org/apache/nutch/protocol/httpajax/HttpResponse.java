@@ -36,6 +36,7 @@ import org.w3c.dom.Node;
 
 import java.io.*;
 import java.net.URL;
+import java.util.List;
 
 /** An HTTP response. */
 public class HttpResponse implements Response {
@@ -128,6 +129,24 @@ public class HttpResponse implements Response {
     int count = Integer.MAX_VALUE;
     count = webClient.waitForBackgroundJavaScript(10000);
     content = page101.asXml().getBytes();
+
+
+    ////////////通过 xpath 获取目标数据  fixme
+    StringBuilder sb=new StringBuilder();
+    sb.append("xpath").append("-").append(url.getHost()).append("-").append(url.getPath());
+    conf=http.getConf();
+    String[] xpath = conf.getTrimmedStrings(sb.toString());
+    System.out.println("*************");
+    System.out.println(sb.toString());
+
+    if (xpath.length>0){
+      List<HtmlUnorderedList> byXPath = page101.getByXPath(xpath[0]);
+      System.out.println(byXPath.size());
+      System.out.println(byXPath.get(0).asXml());
+      System.out.println("*************");
+      content=byXPath.get(0).asXml().getBytes();
+    }
+    //////////
 
 
     this.code = 200;
