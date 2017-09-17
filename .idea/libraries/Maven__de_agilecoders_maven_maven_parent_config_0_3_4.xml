@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: de.agilecoders.maven:maven-parent-config:0.3.4">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/maven/repo/de/agilecoders/maven/maven-parent-config/0.3.4/maven-parent-config-0.3.4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/maven/repo/de/agilecoders/maven/maven-parent-config/0.3.4/maven-parent-config-0.3.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/maven/repo/de/agilecoders/maven/maven-parent-config/0.3.4/maven-parent-config-0.3.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

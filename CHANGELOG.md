@@ -1,3 +1,58 @@
+###20190917
+
+*  增加多 xpath 支持
+
+```aidl
+
+   <property>
+        <name>xpath-kuai.baidu.com-/webapp/bus/list.html</name>
+        <value>//div[@class='js_list_wrapper']/ul</value>
+        <description>
+            System.out.println(url.getHost()); kuai.baidu.com/
+            System.out.println(url.getPath()); webapp/bus/list.html
+
+        </description>
+    </property>
+
+    <property>
+        <name>xpath-kuai.baidu.com-/webapp/bus/list.html</name>
+        <value>//div[contains(@class, 'page-list')]/ul</value>
+        <description>
+            System.out.println(url.getHost()); kuai.baidu.com/
+            System.out.println(url.getPath()); webapp/bus/list.html
+
+        </description>
+    </property>
+
+
+```
+
+```aidl
+
+        conf = http.getConf();
+        String[] xpathkeys = conf.getTrimmedStrings(sb.toString());
+
+        DomElement div = page101.createElement("div");
+        for (String xpath : xpathkeys
+                ) {
+            DomElement divc = page101.createElement("div");
+            divc.setAttribute("targetdata","ok");
+            List<HtmlUnorderedList> byXPath = page101.getByXPath(xpath);
+            for (HtmlUnorderedList ul : byXPath
+                    ) {
+                divc.appendChild(ul);
+                System.out.println(ul.asXml());
+                System.out.println("*************");
+            }
+            div.appendChild(divc);
+        }
+        if (div.hasChildNodes()){
+            content = div.asXml().getBytes();
+        }
+
+
+```
+
 ###20170915
 
 *   配置 xpath 提取目标数据
