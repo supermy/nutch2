@@ -100,7 +100,8 @@ public class DbPageConverter {
 
   private static Set<Field> filterFields(WebPage page, Set<String> queryFields) {
     List<Field> pageFields = page.getSchema().getFields();
-    if (CollectionUtils.isEmpty(queryFields)) {
+    if (queryFields.size()<=0) {
+//      if (CollectionUtils.isEmpty(queryFields)) {
       return Sets.newHashSet(pageFields);
     }
 
@@ -115,7 +116,8 @@ public class DbPageConverter {
 
   private static Map<String, String> getSimpleMetadata(WebPage page) {
     Map<CharSequence, ByteBuffer> metadata = page.getMetadata();
-    if (MapUtils.isEmpty(metadata)) {
+    if (metadata.isEmpty()) {
+//      if (MapUtils.isEmpty(metadata)) {
       return Collections.emptyMap();
     }
     Map<String, String> simpleMeta = Maps.newHashMap();

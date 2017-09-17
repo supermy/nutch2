@@ -63,7 +63,8 @@ public class SeedResource extends AbstractResource {
     BufferedWriter writer = getWriter(seedFile);
 
     Collection<SeedUrl> seedUrls = seedList.getSeedUrls();
-    if (CollectionUtils.isNotEmpty(seedUrls)) {
+    if (seedUrls.size()<=0) {
+//      if (CollectionUtils.isNotEmpty(seedUrls)) {
       for (SeedUrl seedUrl : seedUrls) {
         writeUrl(writer, seedUrl);
       }

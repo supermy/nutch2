@@ -64,7 +64,8 @@ public class NutchStatus {
 
   private Collection<JobInfo> purgeFinishedFailedJobs(
       Collection<JobInfo> runningJobColl) {
-    if (CollectionUtils.isNotEmpty(runningJobColl)) {
+    if (runningJobColl.size()<=0) {
+//      if (CollectionUtils.isNotEmpty(runningJobColl)) {
       Iterator<JobInfo> runningJobsIterator = runningJobColl.iterator();
       while (runningJobsIterator.hasNext()) {
         JobInfo jobInfo = runningJobsIterator.next();

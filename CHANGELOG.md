@@ -1,5 +1,20 @@
 ###20190917
 
+jmxtools-1.2.1.jar 与 jmxri-1.2.1.jar maven库缺少
+使用方法：
+
+* pom.xml 支持
+
+如果因为缺少jms，jmxri，jmxtools等工具导致编译包时产生错误：
+
+```aidl
+mvn install:install-file -Dfile=jms-1.1.pom -DgroupId=javax.jms -DartifactId=jms -Dversion=1.1 -Dpackaging=jar
+
+mvn install:install-file -Dfile=jmxtools-1.2.1.pom -DgroupId=com.sun.jdmk -DartifactId=jmxtools -Dversion=1.2.1 -Dpackaging=jar
+
+mvn install:install-file -Dfile=jmxri-1.2.1.pom -DgroupId=com.sun.jmx -DartifactId=jmxri -Dversion=1.2.1 -Dpackaging=jar
+```
+
 *  增加多 xpath 支持
 
 ```aidl
