@@ -166,7 +166,9 @@ public class HttpResponse implements Response {
             div.appendChild(divc);
         }
         if (div.hasChildNodes()){
-            content = div.asXml().getBytes();
+            //用目标 xpath 数据更新内容
+            if (div.asXml().trim().length()>0)
+                content = div.asXml().getBytes();
         }
 
         //////////

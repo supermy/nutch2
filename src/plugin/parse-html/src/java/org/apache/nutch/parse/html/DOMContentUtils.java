@@ -208,7 +208,10 @@ public class DOMContentUtils {
       }
 
     }
+
+    if(sb.length()>0){
       sb.append("}");
+    }
 
 
 
