@@ -16,21 +16,36 @@ Nutch2 爬虫整合，Mongodb数据存储，Json 精准数据提取，Mongo JS �
 
 ## 操作步骤
 
-*  安装 mongodb: brew install mongodb;  mongo 测试可用 
+*  安装 mongodb: mongo 测试可用 
+```aidl
+    brew install mongodb;  
+```
 
-*  克隆：github clone https://github.com/supermy/nutch2
+*  克隆：
+```aidl
+    github clone https://github.com/supermy/nutch2
+```
 
-*  编译：ant runtime
+*  编译：
+```aidl
+    ant runtime
+```
 
 *  配置抓取地址：
-   vim  urls/gushichi.txt
+```aidl
+    vim  urls/gushichi.txt
         http://www.gushiwen.org/gushi/quansong.aspx
+```
+   
    
 *  配置url 过滤条件：
+```aidl
    vim runtime/local/conf/regex-urlfilter.txt
         +^http://([a-z0-9]*\.)*gushiwen.org/
+```
 
 *  单配置目标数据 xpath：
+```aidl
       vim runtime/local/conf/nutch-site.xml
        <property>
            <name>xpath-kuai.baidu.com-/webapp/bus/list.html</name>
@@ -41,8 +56,10 @@ Nutch2 爬虫整合，Mongodb数据存储，Json 精准数据提取，Mongo JS �
    
            </description>
        </property>
+```
 
 *  多目标数据支持 xpath
+```aidl
    <property>
         <name>xpath-kuai.baidu.com-/webapp/bus/list.html</name>
         <value><![CDATA[//div[@class='js_list_wrapper']/ul;//div[contains(@class,'page-list')]/ul]]></value>
@@ -52,31 +69,40 @@ Nutch2 爬虫整合，Mongodb数据存储，Json 精准数据提取，Mongo JS �
 
         </description>
     </property>
+```
 
       
 
 *  【可用 ETL 调度】抓取网页，数据存储到 mongodb 的 nutch 库  gushichi_webpage 表中：
 
+```aidl
     cd runtime/local
     bin/crawl ../../urls/gushichi.txt gushichi 1
     bin/crawl ../../urls/nuomidianying.txt nuomidianying 1    
     bin/crawl ../../urls/dianping.txt dianping 1
     bin/crawl ../../urls/gonglu.txt gonglu 1
+```
 
 *  查看网页抓取记录数量：nutch -  数据库名称； gushichi_webpage - 数据表名称    
+```aidl
     mongo nutch --quiet --eval 'db.gushichi_webpage.count()'
     mongo nutch --quiet --eval 'db.gushichi_webpage.findOne()'
     >mongo
     >use nutch
     >db.gushichi_webpage.findOne()
+```
     
 *  查看网页内容：字段 content 保存网页内容，字段 text 保存正文内容；
+```aidl
     mongo nutch --quiet --eval  'db.gushichi_webpage.findOne({baseUrl:"http://so.gushiwen.org/view_8328.aspx"},{})["content"].base64()' |base64 -D
 
+```
 
 *  【可用 ETL 工具调度】Mongo JS 抽取所需要的数据到 csv 
+```aidl
     mongo nutch --quiet get.js  >gonglu.csv
-    
+
+```    
     
 
 ## 特点
