@@ -30,7 +30,7 @@ Nutch2 爬虫整合，Mongodb数据存储，Json 精准数据提取，Mongo JS �
    vim runtime/local/conf/regex-urlfilter.txt
         +^http://([a-z0-9]*\.)*gushiwen.org/
 
-*  配置目标数据 xpath：
+*  单配置目标数据 xpath：
       vim runtime/local/conf/nutch-site.xml
        <property>
            <name>xpath-kuai.baidu.com-/webapp/bus/list.html</name>
@@ -41,6 +41,18 @@ Nutch2 爬虫整合，Mongodb数据存储，Json 精准数据提取，Mongo JS �
    
            </description>
        </property>
+
+*  多目标数据支持 xpath
+   <property>
+        <name>xpath-kuai.baidu.com-/webapp/bus/list.html</name>
+        <value><![CDATA[//div[@class='js_list_wrapper']/ul;//div[contains(@class,'page-list')]/ul]]></value>
+        <description>
+            System.out.println(url.getHost()); kuai.baidu.com/
+            System.out.println(url.getPath()); webapp/bus/list.html
+
+        </description>
+    </property>
+
       
 
 *  【可用 ETL 调度】抓取网页，数据存储到 mongodb 的 nutch 库  gushichi_webpage 表中：

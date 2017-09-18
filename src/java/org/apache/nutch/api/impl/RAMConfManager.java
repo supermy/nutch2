@@ -108,8 +108,8 @@ public class RAMConfManager implements ConfManager {
     Configuration conf = NutchConfiguration.create();
     configurations.put(nutchConfig.getConfigId(), conf);
 
-    if (nutchConfig.getParams().isEmpty()) {
-//      if (MapUtils.isEmpty(nutchConfig.getParams())) {
+//    if (nutchConfig.getParams().isEmpty()) {
+    if (MapUtils.isEmpty(nutchConfig.getParams())) {
       return;
     }
     for (Entry<String, String> e : nutchConfig.getParams().entrySet()) {

@@ -82,8 +82,8 @@ public class DbReader {
   }
 
   private String[] prepareFields(Set<String> fields) {
-    if (fields.size()<=0) {
-//      if (CollectionUtils.isEmpty(fields)) {
+//    if (fields.size()<=0) {
+      if (CollectionUtils.isEmpty(fields)) {
       return null;
     }
     fields.remove("url");

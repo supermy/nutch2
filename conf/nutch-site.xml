@@ -73,19 +73,19 @@
     </property>
 
 
+    <!--<property>-->
+        <!--<name>xpath-kuai.baidu.com-/webapp/bus/list.html</name>-->
+        <!--<value>//div[@class='js_list_wrapper']/ul</value>-->
+        <!--<description>-->
+            <!--System.out.println(url.getHost()); kuai.baidu.com/-->
+            <!--System.out.println(url.getPath()); webapp/bus/list.html-->
+
+        <!--</description>-->
+    <!--</property>-->
+
     <property>
         <name>xpath-kuai.baidu.com-/webapp/bus/list.html</name>
-        <value>//div[@class='js_list_wrapper']/ul</value>
-        <description>
-            System.out.println(url.getHost()); kuai.baidu.com/
-            System.out.println(url.getPath()); webapp/bus/list.html
-
-        </description>
-    </property>
-
-    <property>
-        <name>xpath-kuai.baidu.com-/webapp/bus/list.html</name>
-        <value>//div[contains(@class, 'page-list')]/ul</value>
+        <value><![CDATA[//div[@class='js_list_wrapper']/ul;//div[contains(@class,'page-list')]/ul]]></value>
         <description>
             System.out.println(url.getHost()); kuai.baidu.com/
             System.out.println(url.getPath()); webapp/bus/list.html

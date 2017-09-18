@@ -140,19 +140,28 @@ public class HttpResponse implements Response {
         System.out.println(sb.toString());
 
         conf = http.getConf();
-        String[] xpathkeys = conf.getTrimmedStrings(sb.toString());
+        String[] xpathkeys = conf.getMyTrimmedStrings(sb.toString());
+
+//        System.out.println(conf.getStrings(sb.toString()));
+//        System.out.println(conf.getRaw(sb.toString()));
+//        System.out.println(conf.getTrimmed(sb.toString()));
+//        System.out.println(conf.getValByRegex(sb.toString()));
+
 
         DomElement div = page101.createElement("div");
         for (String xpath : xpathkeys
                 ) {
+            System.out.println("*************"+xpath);
+
+            List<HtmlUnorderedList> byXPath = page101.getByXPath(xpath);
+
             DomElement divc = page101.createElement("div");
             divc.setAttribute("targetdata","ok");
-            List<HtmlUnorderedList> byXPath = page101.getByXPath(xpath);
+
             for (HtmlUnorderedList ul : byXPath
                     ) {
                 divc.appendChild(ul);
                 System.out.println(ul.asXml());
-                System.out.println("*************");
             }
             div.appendChild(divc);
         }

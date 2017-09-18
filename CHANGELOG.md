@@ -21,7 +21,7 @@ mvn install:install-file -Dfile=jmxri-1.2.1.pom -DgroupId=com.sun.jmx -Dartifact
 
    <property>
         <name>xpath-kuai.baidu.com-/webapp/bus/list.html</name>
-        <value>//div[@class='js_list_wrapper']/ul</value>
+        <value><![CDATA[//div[@class='js_list_wrapper']/ul;//div[contains(@class,'page-list')]/ul]]></value>
         <description>
             System.out.println(url.getHost()); kuai.baidu.com/
             System.out.println(url.getPath()); webapp/bus/list.html
@@ -29,15 +29,6 @@ mvn install:install-file -Dfile=jmxri-1.2.1.pom -DgroupId=com.sun.jmx -Dartifact
         </description>
     </property>
 
-    <property>
-        <name>xpath-kuai.baidu.com-/webapp/bus/list.html</name>
-        <value>//div[contains(@class, 'page-list')]/ul</value>
-        <description>
-            System.out.println(url.getHost()); kuai.baidu.com/
-            System.out.println(url.getPath()); webapp/bus/list.html
-
-        </description>
-    </property>
 
 
 ```

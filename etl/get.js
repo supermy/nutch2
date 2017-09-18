@@ -11,33 +11,37 @@
  * @param datakey
  */
 function getdata(item,datakey) {
-    // print(JSON.stringify(item));
     //print(JSON.stringify(item._id));
     // print(JSON.stringify(item.text));
-    //
     var data = JSON.parse(item.text); //字符串转化为 json 对象 方法1
     // var data = eval(item.text);//字符串转化为 json 对象 方法2
     //var data =(new Function("","return "+item.text))(); //字符串转化为 json 对象 方法3
 
-    var targetdata=data[datakey];
-    // print(JSON.stringify(targetdata));
+    // print(JSON.stringify(data));
+    for(var k in data){
+        var item = data[k];
+        // print(JSON.stringify(item));
 
-    //数据转换json2csv
-    targetdata.forEach(function(line){
-        print(JSON.stringify(line));
-        for(var k in line){
-            var item = line[k];
+        //数据转换json2csv
+        item.forEach(function(line){
+            print(JSON.stringify(line));
+            for(var k in line){
+                var obj = line[k];
 
-            var out=new Array();
-            for(var j in item) {
-                out.push(item[j]);
+                var out=new Array();
+                for(var j in obj) {
+                    out.push(obj[j]);
+                }
+                print(out.join("|"));
             }
-            print(out.join("|"));
-        }
-    })
+        })
+
+    }
+
+
 
 }
 
-db.gonglu_webpage.find({}, {"text": 1}).forEach(function(o){getdata(o,"jdata3")});
+db.gonglu_webpage.find({}, {"text": 1}).forEach(function(o){getdata(o)});
 // db.baidu_webpage.find({}, {"text": 1}).forEach(function(o){getdata(o,"jdata294")});
 
