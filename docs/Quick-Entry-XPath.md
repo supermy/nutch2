@@ -15,4 +15,11 @@ XPath-快速入门
 
 ###使用 XPath 获取数据
 * chome 访问百度，搜索 "xpath"
-* 
+
+![Alt text](/docs/resources/xpath-1.png "xpath 示例")
+![Alt text](/docs/resources/xpath-2.png "xpath 示例")
+
+
+###XPath 常用语法
+
+![Alt text](/docs/resources/xpath-3.png "xpath 示例")
