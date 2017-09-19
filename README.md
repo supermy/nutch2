@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.org/supermy/nutch2.svg?branch=master)](https://github.com/supermy/nutch2)
 
+## 讨论群
+    QQ 584438891
+    
+
 ## 简介 
 
 Nutch2 爬虫整合，Mongodb数据存储，Json 精准数据提取，Mongo JS 进行数据 ETL 抽取。
@@ -129,3 +133,4 @@ Nutch2 爬虫整合，Mongodb数据存储，Json 精准数据提取，Mongo JS �
 ## 劣势：
 
 *  较为复杂
+
