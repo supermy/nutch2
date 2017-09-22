@@ -93,7 +93,34 @@
         </description>
     </property>
 
+    <property>
+        <name>xpath-flights.ctrip.com-/booking/BJS-SHA-day-1</name>
+        <value><![CDATA[//table/tbody]]></value>
+        <description>
+            携程
 
+        </description>
+    </property>
+
+    <property>
+        <name>xpath-kuai.baidu.com-/webapp/bus/list.html</name>
+        <value><![CDATA[//div[contains(@class, 'flight-list')]/ul]]></value>
+        <description>
+            去哪儿
+
+        </description>
+    </property>
+
+
+    <property>
+        <name>charset-flights.ctrip.com</name>
+        <value>gb2312</value>
+        <description>
+            有的网站需要设置编码才能正确抓取 ajax html
+            默认编码为 utf-8
+
+        </description>
+    </property>
 
 
 

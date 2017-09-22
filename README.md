@@ -17,6 +17,8 @@ Nutch2 爬虫整合，Mongodb数据存储，Json 精准数据提取，Mongo JS �
 ## 适用场景
 
     互联网资料的获取
+    如果 PC 地址抓取不成功，可以尝试 H5地址页面抓取；
+    
 
 ## 操作步骤
 
@@ -74,7 +76,18 @@ Nutch2 爬虫整合，Mongodb数据存储，Json 精准数据提取，Mongo JS �
         </description>
     </property>
 ```
+* 可配置网页编码 gb2312 或 GBK
+```aidl
+    <property>
+        <name>charset-flights.ctrip.com</name>
+        <value>gb2312</value>
+        <description>
+            有的网站需要设置编码才能正确抓取 ajax html
+            默认编码为 utf-8
 
+        </description>
+    </property>
+```
       
 
 *  【可用 ETL 调度】抓取网页，数据存储到 mongodb 的 nutch 库  gushichi_webpage 表中：

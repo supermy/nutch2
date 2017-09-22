@@ -47,4 +47,6 @@
 
 +^https://kuai.baidu.com/webapp/bus/list.html
 
++^https://m.flight.qunar.com/ncs/page/flightlist
 
++^http://flights.ctrip.com/booking/

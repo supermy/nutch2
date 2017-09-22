@@ -116,15 +116,32 @@ public class HttpResponse implements Response {
         webClient.getOptions().setRedirectEnabled(true);
         webClient.getCurrentWindow().setInnerHeight(6000);
 
+        conf = http.getConf();
 
         WebRequest request = new WebRequest(url);
-        request.setCharset("UTF-8");
+
+        StringBuilder charsetkey = new StringBuilder();
+        charsetkey.append("charset").append("-").append(url.getHost()));
+        System.out.println("*************");
+        System.out.println(charsetkey.toString());
+
+        String charset = conf.get(charsetkey.toString());
+
+
+        if (charset.isEmpty()){
+            request.setCharset("UTF-8");
+        }
+        else
+            {
+                request.setCharset(charset.trim());
+            }
+
         //request.setProxyHost("8.8.8.8");
         //request.setProxyPort(8080);
-        String refer = "https://www.baidu.com/s?wd=%E5%AE%A2%E8%BF%90&rsv_spt=1&rsv_iqid=0xc97eaf1a0001076b&issp=1&f=8&rsv_bp=0&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_sug3=5&rsv_sug1=4&rsv_sug7=100&rsv_sug2=0&inputT=1214&rsv_sug4=1214";
+        String refer = url.getPath();
         request.setAdditionalHeader("Referer", refer);//设置请求报文头里的refer字段
         ////设置请求报文头里的User-Agent字段
-        request.setAdditionalHeader("User-Agent", "Mozilla/5.0 (Windows NT 5.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2");
+        request.setAdditionalHeader("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36");
 
 
         HtmlPage page101 = webClient.getPage(request);
@@ -139,8 +156,9 @@ public class HttpResponse implements Response {
         System.out.println("*************");
         System.out.println(sb.toString());
 
-        conf = http.getConf();
         String[] xpathkeys = conf.getMyTrimmedStrings(sb.toString());
+
+
 
 //        System.out.println(conf.getStrings(sb.toString()));
 //        System.out.println(conf.getRaw(sb.toString()));
@@ -153,12 +171,12 @@ public class HttpResponse implements Response {
                 ) {
             System.out.println("*************"+xpath);
 
-            List<HtmlUnorderedList> byXPath = page101.getByXPath(xpath);
+            List<HtmlElement> byXPath = page101.getByXPath(xpath);
 
             DomElement divc = page101.createElement("div");
             divc.setAttribute("targetdata","ok");
 
-            for (HtmlUnorderedList ul : byXPath
+            for (HtmlElement ul : byXPath
                     ) {
                 divc.appendChild(ul);
                 System.out.println(ul.asXml());
