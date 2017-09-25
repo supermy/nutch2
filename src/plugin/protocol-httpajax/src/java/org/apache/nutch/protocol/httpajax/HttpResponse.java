@@ -121,20 +121,17 @@ public class HttpResponse implements Response {
         WebRequest request = new WebRequest(url);
 
         StringBuilder charsetkey = new StringBuilder();
-        charsetkey.append("charset").append("-").append(url.getHost()));
+        charsetkey.append("charset").append("-").append(url.getHost());
         System.out.println("*************");
         System.out.println(charsetkey.toString());
 
+
+        request.setCharset("UTF-8");
+
         String charset = conf.get(charsetkey.toString());
-
-
-        if (charset.isEmpty()){
-            request.setCharset("UTF-8");
-        }
-        else
-            {
+        if (!charset.isEmpty()){
                 request.setCharset(charset.trim());
-            }
+        }
 
         //request.setProxyHost("8.8.8.8");
         //request.setProxyPort(8080);

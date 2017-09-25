@@ -97,7 +97,7 @@
         <name>xpath-flights.ctrip.com-/booking/BJS-SHA-day-1</name>
         <value><![CDATA[//table/tbody]]></value>
         <description>
-            携程
+            航运 携程
 
         </description>
     </property>
@@ -106,11 +106,20 @@
         <name>xpath-kuai.baidu.com-/webapp/bus/list.html</name>
         <value><![CDATA[//div[contains(@class, 'flight-list')]/ul]]></value>
         <description>
-            去哪儿
+            航运 去哪儿
 
         </description>
     </property>
 
+    <property>
+        <name>xpath-touch.train.qunar.com-/trainList.html</name>
+        <value><![CDATA[//ul[@id='m-lists]]></value>
+        <description>
+            铁路 去哪儿
+            http://touch.train.qunar.com/trainList.html
+
+        </description>
+    </property>
 
     <property>
         <name>charset-flights.ctrip.com</name>
