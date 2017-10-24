@@ -31,6 +31,7 @@ import org.apache.nutch.protocol.ProtocolException;
 import org.apache.nutch.protocol.http.api.HttpBase;
 import org.apache.nutch.protocol.http.api.HttpException;
 import org.apache.nutch.storage.WebPage;
+import org.apache.nutch.util.StringUtil;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
@@ -129,7 +130,7 @@ public class HttpResponse implements Response {
         request.setCharset("UTF-8");
 
         String charset = conf.get(charsetkey.toString());
-        if (!charset.isEmpty()){
+        if (!StringUtil.isEmpty(charset)){
                 request.setCharset(charset.trim());
         }
 

@@ -103,7 +103,7 @@
     </property>
 
     <property>
-        <name>xpath-kuai.baidu.com-/webapp/bus/list.html</name>
+        <name>xpath-m.flight.qunar.com-/ncs/page/flightlist</name>
         <value><![CDATA[//div[contains(@class, 'flight-list')]/ul]]></value>
         <description>
             航运 去哪儿

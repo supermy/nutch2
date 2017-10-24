@@ -168,7 +168,7 @@ public class DOMContentUtils {
 
             String nodeName = currentNode.getNodeName();
             short nodeType = currentNode.getNodeType();
-
+            String className = getAttributeValue(currentNode,"class");
 
 
             //特殊标签进行递归
@@ -187,11 +187,16 @@ public class DOMContentUtils {
                 walker.skipChildren();
             }
 
-//            if (currentNode.hasAttributes() && className != null) {
-//                if (className.toLowerCase().contains("row") && "div".equalsIgnoreCase(nodeName)) {
-//                    walker.skipChildren();
-//                }
-//            }
+
+            if (currentNode.hasAttributes() && className != null) {
+                if (className.toLowerCase().contains("list-row") && "div".equalsIgnoreCase(nodeName)) {
+                    walker.skipChildren();
+                }
+            }
+
+            if ("section".equalsIgnoreCase(nodeName)) {
+                walker.skipChildren();
+            }
 
             if ("script".equalsIgnoreCase(nodeName)) {
                 walker.skipChildren();
@@ -286,7 +291,7 @@ public class DOMContentUtils {
 
         //兼容不规范的行数据
         if (className != null) {
-            if ((className.toLowerCase().contains("row") && "div".equalsIgnoreCase(nodeName))) {
+            if ((className.toLowerCase().contains("list-row") && "div".equalsIgnoreCase(nodeName))) {
                 if (sb.toString().endsWith("}"))
                     sb.append(",");
 //      sb.append("{'jline"+i+"':{");
@@ -325,7 +330,7 @@ public class DOMContentUtils {
         }
 
         if (className != null) {
-            if (className.toLowerCase().contains("row") && "div".equalsIgnoreCase(nodeName)) {
+            if (className.toLowerCase().contains("list-row") && "div".equalsIgnoreCase(nodeName)) {
                 sb.append("}}");
             }
         }

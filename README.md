@@ -100,6 +100,7 @@ Nutch2 爬虫整合，Mongodb数据存储，Json 精准数据提取，Mongo JS �
     bin/crawl ../../urls/gonglu.txt gonglu 1
     bin/crawl ../../urls/subway-qunar.txt subway-qunar 1
     bin/crawl ../../urls/air-qunar.txt air-qunar 1
+    
 ```
 
 *  查看网页抓取记录数量：nutch -  数据库名称； gushichi_webpage - 数据表名称    
